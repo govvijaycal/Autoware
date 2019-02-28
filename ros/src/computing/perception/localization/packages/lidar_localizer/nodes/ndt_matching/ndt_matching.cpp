@@ -1454,6 +1454,8 @@ static void points_callback(const sensor_msgs::PointCloud2::ConstPtr& input)
     std_msgs::Float32 matching_score_msg;
     matching_score_msg.data = matching_score;
     matching_score_pub.publish(matching_score_msg);
+    health_checker_ptr_->CHECK_MIN_VALUE("ndt_matching_score", matching_score, 0.75, 0.68, 0.65,
+      "ndt matching score is too low.");
 
     if(matching_score_histogram_pub.getNumSubscribers() > 0)
     {
