@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # Build Docker Image
-if [ "$1" = "kinetic" ]
+if [ "$1" = "9" ]
 then
-    echo "Use $1"
-    docker build -t autoware-$1 -f Dockerfile.$1 ./../.. --no-cache
+    echo "Use Cuda 9.0"
+    docker build -t autoware-kinetic9 -f Dockerfile.cuda9 ./../.. --no-cache
 else
-    echo "Select distribution, kinetic"
+    echo "Use Cuda 10.0"
+    docker build -t autoware-kinetic10 -f Dockerfile.cuda10 ./../.. --no-cache
 fi
