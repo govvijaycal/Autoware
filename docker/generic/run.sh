@@ -1,40 +1,50 @@
 #!/bin/bash
 
-usage() { echo "Usage: $0 [-t <tag>] [-r <repo>] [-s <Shared directory>]" 1>&2; exit 1; }
+#usage() { echo "Usage: $0 [-t <tag>] [-r <repo>] [-s <Shared directory>]" 1>&2; exit 1; }
+
+# Build Docker Image
+if [ "$1" = "9" ]
+then
+    echo "Use Cuda 9.0"
+    DOCKER_HUB_REPO="autoware-kinetic9"
+    TAG="latest"
+else
+    echo "Use Cuda 10.0"
+    DOCKER_HUB_REPO="autoware-kinetic10"
+    TAG="latest"
+fi
 
 # Defaults
 XSOCK=/tmp/.X11-unix
 XAUTH=/home/$USER/.Xauthority
 SHARED_DIR=/home/autoware/shared_dir
 HOST_DIR=/home/$USER/shared_dir
-DOCKER_HUB_REPO="autoware/autoware"
-TAG="latest-kinetic"
 
-while getopts ":ht:r:s:" opt; do
-  case $opt in
-    h)
-      usage
-      exit
-      ;;
-    t)
-      TAG=$OPTARG
-      ;;
-    r )
-      DOCKER_HUB_REPO=$OPTARG
-      ;;
-    s)
-      HOST_DIR=$OPTARG
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      exit 1
-      ;;
-    :)
-      echo "Option -$OPTARG requires an argument." >&2
-      exit 1
-      ;;
-  esac
-done
+#while getopts ":ht:r:s:" opt; do
+  #case $opt in
+    #h)
+      #usage
+      #exit
+      #;;
+    #t)
+      #TAG=$OPTARG
+      #;;
+    #r )
+      #DOCKER_HUB_REPO=$OPTARG
+      #;;
+    #s)
+      #HOST_DIR=$OPTARG
+      #;;
+    #\?)
+      #echo "Invalid option: -$OPTARG" >&2
+      #exit 1
+      #;;
+    #:)
+      #echo "Option -$OPTARG requires an argument." >&2
+      #exit 1
+      #;;
+  #esac
+#done
 
 echo "Using $DOCKER_HUB_REPO:$TAG"
 echo "Shared directory: ${HOST_DIR}"

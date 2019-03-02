@@ -62,6 +62,9 @@ RUN sudo rosdep init \
 # Install Autoware
 RUN cd && mkdir /home/$USERNAME/Autoware
 COPY --chown=autoware ./ /home/$USERNAME/Autoware/
+
+RUN  cd /home/autoware/Autoware/ros/src/computing/perception/detection/vision_detector/packages/vision_darknet_detect/darknet && mkdir data && cd data && wget https://pjreddie.com/media/files/yolov3.weights
+
 RUN /bin/bash -c 'source /opt/ros/kinetic/setup.bash; cd /home/$USERNAME/Autoware/ros/src; git submodule update --init --recursive; catkin_init_workspace; cd ../; rosdep install -y --from-paths /home/$USERNAME/Autoware/ros/src --ignore-src --rosdistro kinetic; ./catkin_make_release'
 RUN echo "source /home/$USERNAME/Autoware/ros/devel/setup.bash" >> /home/$USERNAME/.bashrc
 
