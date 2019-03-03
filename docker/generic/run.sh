@@ -2,7 +2,6 @@
 
 #usage() { echo "Usage: $0 [-t <tag>] [-r <repo>] [-s <Shared directory>]" 1>&2; exit 1; }
 
-
 # Build Docker Image
 if [ "$1" = "9" ]
 then
