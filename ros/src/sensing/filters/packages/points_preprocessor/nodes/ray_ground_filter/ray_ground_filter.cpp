@@ -43,6 +43,7 @@
 #include <velodyne_pointcloud/point_types.h>
 #include "autoware_msgs/ConfigRayGroundFilter.h"
 
+
 #include <opencv2/core/version.hpp>
 #if (CV_MAJOR_VERSION == 3)
 #include "gencolors.cpp"

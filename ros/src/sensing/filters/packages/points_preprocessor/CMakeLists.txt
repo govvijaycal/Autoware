@@ -59,6 +59,18 @@ target_link_libraries(ring_ground_filter
     ${Qt5Core_LIBRARIES}
 )
 
+# Algorithm_ex
+
+## Declare a cpp executable
+add_executable(algorithm_ex 
+    nodes/algorithm_ex/algorithm_ex.cpp nodes/algorithm_ex/puck.cpp)
+## Specify libraries to link a library or executable target against
+target_link_libraries(algorithm_ex 
+    ${catkin_LIBRARIES}    
+    ${PCL_LIBRARIES}
+    ${Qt5Core_LIBRARIES}
+)
+
 
 # Ray Ground Filter
 add_library(ray_ground_filter_lib SHARED

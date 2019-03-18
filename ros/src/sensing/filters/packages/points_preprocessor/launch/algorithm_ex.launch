@@ -1,0 +1,9 @@
+<!-- Launch file for RingGround Filter -->
+<launch>
+
+        <!-- rosrun lidar_tracker ground_filter -->
+        <node pkg="points_preprocessor" type="algorithm_ex" name="algorithm_ex" output="log">
+
+        </node>
+
+</launch>
