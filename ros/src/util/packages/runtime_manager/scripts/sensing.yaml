@@ -232,6 +232,12 @@ cmds:
       desc : Transforms cloud points' coordinates to the specified target frame
       cmd  : roslaunch points_preprocessor cloud_transformer.launch
       param: cloud_transformer
+
+    - name : algorithm_ex
+      desc : algorithm_ex performs ground filtering using the ring number contained on each point
+      cmd  : roslaunch points_preprocessor algorithm_ex.launch node_name:=algorithm_ex
+      param: algorithm_ex
+
       
 buttons:
   calibration_toolkit :

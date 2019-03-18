@@ -71,7 +71,7 @@ COPY --chown=autoware ./ /home/$USERNAME/Autoware/
 
 
 # Add Yolo
-RUN /bin/bash -c 'cd /home/$USERNAME/; git clone https://github.com/pjreddie/darknet.git; git checkout 56d69e73aba37283ea7b9726b81afd2f79cd1134; cd data; wget https://pjreddie.com/media/files/yolo.weights'
+RUN /bin/bash -c 'cd /home/$USERNAME/; git clone https://github.com/pjreddie/darknet.git; cd darknet; git checkout 56d69e73aba37283ea7b9726b81afd2f79cd1134; cd data; wget https://pjreddie.com/media/files/yolo.weights'
 
 ## TODO: Consider adding E-Net for semantic segmentation
 
