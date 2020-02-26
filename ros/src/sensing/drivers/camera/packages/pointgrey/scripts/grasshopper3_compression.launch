@@ -1,0 +1,14 @@
+<launch>
+
+	<!-- declare arguments with default values -->
+	<arg name="FPS" default="30"/>
+	<arg name="CalibrationFile" default=""/>
+
+	<node pkg="autoware_pointgrey_drivers" type="grasshopper3_camera" name="grasshopper" output="screen">
+		<param name="fps" value="$(arg FPS)"/>
+		<param name="calibrationfile" value="$(arg CalibrationFile)"/>
+	</node>
+
+	<!-- Edits by VG to allow for compressed images to be used.  I use theora for simplicity. -->
+	<node name="republish" type="republish" pkg="image_transport" output="screen" args="raw in:=/image_raw theora out:=/image_raw/" />
+</launch>

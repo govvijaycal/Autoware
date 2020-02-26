@@ -1,0 +1,3 @@
+- name: lidar_euclidean_track
+  publish: [/detection/lidar_track/bounding_box,  /detection/lidar_track/detected_objects, /detection/lidar_track/points_ground]
+  subscribe: [/detection/lidar_detector/cloud_clusters]
